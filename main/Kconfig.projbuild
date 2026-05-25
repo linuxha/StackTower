@@ -1,0 +1,67 @@
+menu "StackTower Configuration"
+
+config STACKTOWER_WIFI_SSID
+    string "WiFi SSID"
+    default ""
+    help
+        WiFi SSID for the StackTower station connection.
+
+config STACKTOWER_WIFI_PASSWORD
+    string "WiFi password"
+    default ""
+    help
+        WiFi password for the StackTower station connection.
+
+config STACKTOWER_MQTT_BROKER_URI
+    string "MQTT broker URI"
+    default "mqtt://192.168.4.1:1883"
+    help
+        Broker URI used by the ESP-IDF MQTT client.
+
+config STACKTOWER_MQTT_CLIENT_ID
+    string "MQTT client ID"
+    default "stacktower-esp32s2"
+    help
+        Client ID for the MQTT session.
+
+config STACKTOWER_MQTT_CMD_TOPIC
+    string "MQTT command topic"
+    default "device/cmd"
+    help
+        Topic that carries plain-text StackTower commands.
+
+config STACKTOWER_MQTT_STATE_TOPIC
+    string "MQTT state topic"
+    default "device/state"
+    help
+        Topic that receives JSON state updates and command errors.
+
+config STACKTOWER_GPIO_RED
+    int "GPIO for red LED"
+    range 0 46
+    default 15
+
+config STACKTOWER_GPIO_YELLOW
+    int "GPIO for yellow LED"
+    range 0 46
+    default 14
+
+config STACKTOWER_GPIO_GREEN
+    int "GPIO for green LED"
+    range 0 46
+    default 13
+
+config STACKTOWER_GPIO_BLUE
+    int "GPIO for blue LED"
+    range 0 46
+    default 12
+
+config STACKTOWER_GPIO_DEBUG
+    int "GPIO for debug LED"
+    range 0 46
+    default 1
+    help
+        Defaulted from the project brief. Change this if GPIO1 conflicts
+        with your serial console wiring.
+
+endmenu
