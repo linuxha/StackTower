@@ -83,18 +83,18 @@ This FSD defines the complete functional and non-functional requirements for the
    │LED Control│  │ GPIO      │  │Buzzer        │
    │ Manager   │  │ Manager   │  │Control       │
    │ (PWM/Bits)│  │           │  │              │
-   └─────┬──────┘  └────┬──────┘  └───────┬──────┘
+   └─────┬─────┘  └─────┬─────┘  └────────┬─────┘
          │              │                 │
          └──────┬───────┴────────┬────────┘
                 │                │
           ┌─────▼────────────────▼──────┐
           │   GPIO & Peripheral Layer   │
           │   (ESP-IDF Drivers)         │
-          └─────────────┬────────────────┘
+          └─────────────┬───────────────┘
                         │
           ┌─────────────▼──────────────────────┐
           │   Hardware Layer                   │
-          │   GPIO 15, 14, 13, 12, 04, 01     │
+          │   GPIO 15, 14, 13, 12, 04, 01      │
           │   PWM, Timer Peripherals           │
           └────────────────────────────────────┘
 ```
@@ -134,26 +134,26 @@ This FSD defines the complete functional and non-functional requirements for the
 
 ```
 ┌──────────────────────────────────────────┐
-│  Application Layer                        │
-│  ├─ MQTT Task & Event Handlers            │
-│  ├─ LED Command Processor                 │
-│  └─ State Management                      │
+│  Application Layer                       │
+│  ├─ MQTT Task & Event Handlers           │
+│  ├─ LED Command Processor                │
+│  └─ State Management                     │
 ├──────────────────────────────────────────┤
-│  Middleware Layer                         │
-│  ├─ MQTT Client (esp_mqtt)                │
-│  ├─ PWM Control Abstraction                │
-│  └─ Timer Management                      │
+│  Middleware Layer                        │
+│  ├─ MQTT Client (esp_mqtt)               │
+│  ├─ PWM Control Abstraction              │
+│  └─ Timer Management                     │
 ├──────────────────────────────────────────┤
-│  ESP-IDF Core Drivers                     │
-│  ├─ GPIO Driver                           │
-│  ├─ Timer Driver (LED_PWM)                │
-│  ├─ WiFi Driver                           │
-│  └─ TCP/IP Stack                          │
+│  ESP-IDF Core Drivers                    │
+│  ├─ GPIO Driver                          │
+│  ├─ Timer Driver (LED_PWM)               │
+│  ├─ WiFi Driver                          │
+│  └─ TCP/IP Stack                         │
 ├──────────────────────────────────────────┤
-│  FreeRTOS Real-Time Kernel                │
-│  ├─ Task Scheduler                        │
-│  ├─ Queue Management                      │
-│  └─ Synchronization Primitives            │
+│  FreeRTOS Real-Time Kernel               │
+│  ├─ Task Scheduler                       │
+│  ├─ Queue Management                     │
+│  └─ Synchronization Primitives           │
 └──────────────────────────────────────────┘
 ```
 
